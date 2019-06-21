@@ -2,10 +2,8 @@ package com.yxf.eurekaclient.controller;
 
 
 import com.alibaba.fastjson.JSON;
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.netflix.discovery.converters.Auto;
 import com.yxf.eurekaclient.entity.User;
-import com.yxf.eurekaclient.mapper.UserMapper;
+import com.yxf.eurekaclient.mapper.db1.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -38,7 +36,7 @@ public class UserController {
         String result = null;
         SimpleDateFormat df = new SimpleDateFormat("HH:mm:ss SSS");
         System.out.println(df.format(new Date()));
-        List<User> users = userMapper.getUserListWithPage(0,100000);
+        List<User> users = userMapper.getUserListWithPage(0,10000);
         System.out.println(df.format(new Date()));
 
         result = JSON.toJSONString(users);
@@ -54,7 +52,7 @@ public class UserController {
             user.setName(UUID.randomUUID().toString());
             user.setRemark(String.valueOf(System.currentTimeMillis()));
             user.setSex(String.valueOf(new Random().nextInt(2)));
-            Integer insertCount = userMapper.insert(user);
+//            Integer insertCount = userMapper.insert(user);
             System.out.println(i);
         }
     }

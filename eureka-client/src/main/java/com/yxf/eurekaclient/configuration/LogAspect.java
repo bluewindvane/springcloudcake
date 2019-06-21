@@ -1,6 +1,5 @@
 package com.yxf.eurekaclient.configuration;
 
-import freemarker.template.SimpleDate;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.Aspect;
