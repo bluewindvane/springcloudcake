@@ -33,3 +33,9 @@ spring:
             - Path=/client/**   #路由规则
           filters:
             - StripPrefix=1
+        - id: eureka-server
+            uri: lb://EUREKA-SERVICE   #目标地址
+            predicates:
+              - Path=/server/**   #路由规则
+            filters:
+              - StripPrefix=1
