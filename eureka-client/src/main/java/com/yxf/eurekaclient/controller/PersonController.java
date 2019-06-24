@@ -30,10 +30,10 @@ public class PersonController {
     public String getPersonList() {
         String result = null;
 
-
         List<Person> personList = personMapper.getAll();
 
         result = JSON.toJSONString(personList);
+
         return result;
     }
 }

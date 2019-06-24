@@ -1,0 +1,35 @@
+logging:
+  level:
+    org.springframework.cloud.gateway: TRACE
+    org.springframework.http.server.reactive: DEBUG
+    org.springframework.web.reactive: DEBUG
+    reactor.ipc.netty: DEBUG
+
+
+server:
+  port: 9003
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://192.168.50.14:8761/eureka/
+  instance:
+    prefer-ip-address: true
+    instance-id: http://192.168.50.14:${server.port}
+    hostname: http://192.168.50.14
+
+spring:
+  application:
+    name: eureka-gateway
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      routes:
+        - id: eureka-client
+          uri: lb://EUREKA-CLIENT   #目标地址
+          predicates:
+            - Path=/client/**   #路由规则
+          filters:
+            - StripPrefix=1
