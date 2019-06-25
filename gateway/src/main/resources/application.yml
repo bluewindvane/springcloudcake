@@ -28,14 +28,15 @@ spring:
           enabled: true
       routes:
         - id: eureka-client
-          uri: lb://EUREKA-CLIENT   #目标地址
+          uri: lb://EUREKA-CLIENT
           predicates:
-            - Path=/client/**   #路由规则
+            - Path=/client/**
           filters:
             - StripPrefix=1
+
         - id: eureka-server
-            uri: lb://EUREKA-SERVICE   #目标地址
-            predicates:
-              - Path=/server/**   #路由规则
-            filters:
-              - StripPrefix=1
+          uri: lb://EUREKA-SERVICE
+          predicates:
+            - Path=/server/**
+          filters:
+            - StripPrefix=1
