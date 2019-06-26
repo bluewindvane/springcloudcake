@@ -57,6 +57,15 @@ public class UserController {
         }
     }
 
+    @GetMapping("/getUserTest")
+    public String getUserTest() {
+        String result = null;
+        List<User> users = userMapper.getUserList();
+
+        result = JSON.toJSONString(users);
+        return result;
+    }
+
 
 
 }

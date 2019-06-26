@@ -15,4 +15,6 @@ public interface UserMapper {
     @Select(" SELECT id,name,remark,age,sex from user ORDER BY id LIMIT #{min},#{max} ")
     List<User> getUserListWithPage(@Param("min") Integer min, @Param("max") Integer max);
 
+    List<User> getUserList();
+
 }

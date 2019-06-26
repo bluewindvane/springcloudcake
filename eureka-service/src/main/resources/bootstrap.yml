@@ -1,0 +1,18 @@
+spring:
+  cloud:
+    config:
+      name: server
+      profile: pro
+      label: master
+      discovery:
+        enabled: true
+        service-id: config-server
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://192.168.50.14:8761/eureka/
+  instance:
+    prefer-ip-address: true
+    instance-id: http://192.168.50.14:${server.port}
+    hostname: http://192.168.50.14

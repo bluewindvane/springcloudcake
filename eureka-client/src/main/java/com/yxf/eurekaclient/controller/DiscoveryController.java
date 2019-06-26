@@ -14,9 +14,12 @@ public class DiscoveryController {
     @Value("${server.port}")
     private String ip;
 
+    @Value("${yxf}")
+    private String myname;
+
     @GetMapping("/client")
     public String client() {
-        String services = "Services: " + discoveryClient.getServices()+" ip :"+ip;
+        String services = "Services: " + discoveryClient.getServices()+" ip :"+ip+"   name: "+myname;
 
         System.out.println(services);
         return services;

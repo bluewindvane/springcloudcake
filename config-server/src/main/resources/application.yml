@@ -1,0 +1,22 @@
+server:
+  port: 9004
+spring:
+  application:
+    name: config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/yyxxff/config-repo
+          username: 543013487@qq.com
+          password: fcgmqty#yxf123
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://192.168.50.14:8761/eureka/
+  instance:
+    prefer-ip-address: true
+    instance-id: http://192.168.50.14:${server.port}
+    hostname: http://192.168.50.14
+
